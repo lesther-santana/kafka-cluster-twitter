@@ -37,7 +37,7 @@ Worker-N-IP
 
 To start Zookeeper and then Kafka in each node. Place `nodes` and `start.sh` in the same location at the manager and then in a terminal as the root user run:
 
-``` bash
+```
 bash start.sh
 ```
 
@@ -55,7 +55,7 @@ To start the stream, we must create a rule. Ours has three operators, "keyword,"
 ### Producer
 To start the producer, run `producer.py` passing 3 arguments: The first argument is the host the consumer should contact to bootstrap initial cluster metadata, the second is the Kafka topic and the third is the keyword we want to use for the stream:
 
-```python
+```
 python3 producer.py 10.128.0.14 tweets Messi
 ```
 
@@ -63,6 +63,6 @@ python3 producer.py 10.128.0.14 tweets Messi
 
 Run consumer.py passing 2 arguments. The first argument is the host the consumer should contact to bootstrap initial cluster metadata, the second is the Kafka topic:
 
-```python
+```
 python3 consumer.py 10.128.0.14 tweets
 ```
