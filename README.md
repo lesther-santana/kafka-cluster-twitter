@@ -47,3 +47,22 @@ To stop all services, in the manager run as the root user:
 ```
 bash stop.sh
 ```
+## Connecting to Twitter API v2
+Our producer application uses python and the library tweepy to connect to twitter's API v2. We use the filtered stream endpoint to listen for specific keywords. Both producer and consumer modules use kafka-python.
+
+To start the stream, we must create a rule. Ours has three operators, "keyword," "lang: en," and "sample:10". First, the "keyword" matches a keyword within the body of a Tweet. The second is "lang:en:" to capture Tweets that Twitter has classified as being in English, and the third is "sample:10" to return a random percent sample of Tweets that match the rule rather than the entire set of Tweets. The last operator is to stay within the tweet capture cap of 2 million tweets.
+
+### Producer
+To start the producer, run `producer.py` passing 3 arguments: The first argument is the host the consumer should contact to bootstrap initial cluster metadata, the second is the Kafka topic and the third is the keyword we want to use for the stream:
+
+```python
+python3 producer.py 10.128.0.14 tweets Messi
+```
+
+### Consumer
+
+Run consumer.py passing 2 arguments. The first argument is the host the consumer should contact to bootstrap initial cluster metadata, the second is the Kafka topic:
+
+```python
+python3 consumer.py 10.128.0.14 tweets
+```
