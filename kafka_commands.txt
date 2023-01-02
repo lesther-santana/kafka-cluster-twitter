@@ -1,0 +1,17 @@
+# bin/zookeeper-server-start.sh config/zookeeper_ensemble.properties
+
+# bin/kafka-server-start.sh config/server.properties
+
+# /usr/local/kafka/bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092 --partitions 3
+
+# bin/kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic tweet --partitions 3
+
+# /usr/local/kafka/bin/kafka-console-consumer.sh --topic tweets --from-beginning --bootstrap-server localhost:9092
+
+# /usr/local/kafka/bin/kafka-topics.sh --describe --topic tweets --bootstrap-server localhost:9092
+
+# /usr/local/kafka/bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+# /usr/local/kafka/bin/zookeeper-shell.sh localhost:2181 ls /brokers/ids
+
+# /usr/local/kafka/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group group_1
